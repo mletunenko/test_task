@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Manufacturer, Dealer, Model, Car
+from .models import Manufacturer, Dealer, CarModel, Car
 
 
 class ManufacturerSerializer(serializers.ModelSerializer):
@@ -14,9 +14,9 @@ class DealerSerializer(serializers.ModelSerializer):
         fields = ['id', 'name']
 
 
-class ModelSerializer(serializers.ModelSerializer):
+class CarModelSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Model
+        model = CarModel
         fields = ['id', 'name', 'engine_capacity', 'engine_power',
                   'drive_type', 'clearance', 'manufacturer']
 
@@ -24,4 +24,4 @@ class ModelSerializer(serializers.ModelSerializer):
 class CarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Car
-        fields = ['id', 'VIN', 'model', 'dealer', 'price', 'status']
+        fields = ['id', 'vin', 'model', 'dealer', 'price', 'status']
